@@ -16,9 +16,12 @@ const server = http.createServer((req, res) => {
   //   res.end('<h1>Hello World!</h1>');
 
   //html file
-  const html = fs.readFileSync('./index.html', 'utf-8');
   res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.end(html);
+  //   const html = fs.readFileSync('./index.html', 'utf-8'); //(__dirname+'/index.html')
+  //   res.end(html);
+
+  // or we can use pipe
+  fs.createReadStream(__dirname + '/index.html').pipe(res);
 });
 
 server.listen(3000, () => {
