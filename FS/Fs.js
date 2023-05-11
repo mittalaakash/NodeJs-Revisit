@@ -15,9 +15,11 @@ fs.readFile('./file.txt', 'utf-8', (err, data) => {
   }
 });
 
-fs.writeFileSync('./greet.txt', 'Hello World');
+// flag: 'a' means append
 
-fs.writeFile('./greet.txt', 'Hello Bros', err => {
+fs.writeFileSync('./greet.txt', ' Hello bru', { flag: 'a' });
+
+fs.writeFile('./greet.txt', ' Hello Bros', { flag: 'a' }, err => {
   if (err) console.log(err);
   else console.log('File successfully written!');
 });
