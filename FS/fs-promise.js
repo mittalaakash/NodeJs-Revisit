@@ -8,7 +8,7 @@ fs.readFile('./file.txt', 'utf-8')
 
 console.log('second');
 
-// using async await
+// using async await IIFE
 (async () => {
   try {
     const data = await fs.readFile('./file.txt', 'utf-8');
@@ -17,3 +17,15 @@ console.log('second');
     console.log(err);
   }
 })();
+
+// or regular function
+
+async function readFile() {
+  try {
+    const data = await fs.readFile('./file.txt', 'utf-8');
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
+readFile();
