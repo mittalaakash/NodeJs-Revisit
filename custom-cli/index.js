@@ -3,6 +3,7 @@ const yargs = require('yargs');
 const inquirer = require('inquirer');
 
 const { argv } = yargs(process.argv);
+//if we write custom-cli --pokemon=pikachu then we can access it using argv.pokemon
 
 const printMoves = async pokemonName => {
   try {
