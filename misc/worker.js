@@ -1,7 +1,9 @@
 const http = require('http');
-const { Worker } = require('worker_threads');
+const { Worker, isMainThread, threadId } = require('worker_threads');
 
+console.log(' worker ', isMainThread, threadId);
 const server = http.createServer((req, res) => {
+  console.log(threadId);
   if (req.url === '/') {
     console.log(process.pid, 'home page request');
     res.writeHead(200, { 'Content-Type': 'text/plain' });
